@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.0.1" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
   </ItemGroup>
 
@@ -27,6 +28,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Microsoft.SharePoint.Client.Portable">
+      <HintPath>Libraries\Microsoft.SharePoint.Client.Portable.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime.Portable">
+      <HintPath>Libraries\Microsoft.SharePoint.Client.Runtime.Portable.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SharePoint.Client.Runtime.Windows">
       <HintPath>Libraries\Microsoft.SharePoint.Client.Runtime.Windows.dll</HintPath>
     </Reference>
@@ -37,6 +44,15 @@
 
   <ItemGroup>
     <Folder Include="Libraries\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Libraries\Microsoft.SharePoint.Client.Runtime.Windows.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Libraries\SharepointLib.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

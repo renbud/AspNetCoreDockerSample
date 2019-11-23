@@ -9,8 +9,6 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.0-nanoserver-1903 AS build
 # Renato added these lines
 USER Administrator
-WORKDIR /
-RUN MKDIR \node
 WORKDIR /node
 RUN curl -sL https://nodejs.org/dist/latest/node-v13.2.0-win-x64.zip --output node-v13.2.0-win-x64.zip
 RUN tar -x -f node-v13.2.0-win-x64.zip
