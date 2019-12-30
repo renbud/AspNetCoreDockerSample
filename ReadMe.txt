@@ -1,8 +1,12 @@
-﻿This project was created as a proof of concept for a few pieces of DQP Portal project
+# Overview
+This project demonstrates accessing a sharepoint site from a new website/service running in docker.
+The reason is that the new website requires data that exists as sharepoint lists in an existing (legacy) sharepoint site.
 
-. Use react & node.js with Microsoft stack
-. Deploy to docker containers
-. Access sharepoint libraries from the containers (No .Net framework libraries)
+The requirement for the new service is to use .Net Core on a docker image. A windows image was used because of the need for sharepoint client libraries.
+
+It is possible to access sharepoint using raw HttpClient, but the amount of work required to establish a secure connection seemed daunting, so we used the sharepoint Client Side Object Model (CSOM) library.
+
+Ideally, a .Net Core service would be deployed to a linux image, but the sharepoint client software will only run on windows.
 
 
 # Node and MVC in .Net Core
@@ -11,10 +15,6 @@ These steps
 . Select template for new project (ASPNET Core Web Application)
          -> Choose .Net Core 3.0
 		 -> Choose React.js
-
-(I found that Node.js stays running, holding locks, even after I have stopped debugging and existed Visual Studio
-You can see it in Task Manager & Resmon)
-
 
 
 # Docker
